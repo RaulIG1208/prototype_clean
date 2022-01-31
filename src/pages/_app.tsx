@@ -1,10 +1,10 @@
 import Head from "next/head";
 import { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { CacheProvider, EmotionCache } from "@emotion/react";
-import theme from "../Mui/theme";
-import createEmotionCache from "../Mui/crateEmotionCache";
+import theme from "@ui/theme";
+import createEmotionCache from "../ui/crateEmotionCache";
 import { NextIntlProvider } from "next-intl";
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -33,7 +33,7 @@ export default function MyApp(props: MyAppProps) {
           },
         }}
         messages={pageProps.messages}
-        now={new Date(pageProps.now)}
+        now={new Date(pageProps.now as string | number | Date)}
       >
         <ThemeProvider theme={theme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
